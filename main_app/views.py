@@ -13,6 +13,6 @@ def channels_index(request) :
   channels = Channel.objects.all()
   return render(request, 'channels/index.html', {'channels': channels})
 
-def channels_detail(request , channel_id) :
-  channel = Channel.objects.get(id=channel_id)
-  return render(request, 'channels/detail.html', {'channel': channel})
+def channels_details(request , channel_id) :
+  channels = Channel.objects.get(id=channel_id)
+  return render(request, 'channels/details.html', {'channels': channels})
