@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/cat-index.css' %}"/>
+{% endblock %}
+
+{% block content %}
+<section class="card-container">
+  {% for channel in channels %}
+    <a href="/channels/{{channel.id}}">
+      <p> {{channel.title}}</p>
+    </a>
+  </section>
+  {% endfor %} 
+{% endblock content %}
