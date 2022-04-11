@@ -23,6 +23,7 @@ class Profile(models.Model):
 class Thread(models.Model):
   id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
   # created_by = models.ForeignKey(Profile)
+  title = models.CharField('Thread Title',max_length=100, unique=True)
   created = models.DateTimeField(auto_now_add=True)
   
 
