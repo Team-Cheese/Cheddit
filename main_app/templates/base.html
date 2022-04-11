@@ -14,6 +14,11 @@
         {% if user.is_authenticated%}
         <li>All Channels</li>
         <li>Logout</li>
+        {% else %}
+        <li>All Channels</li>
+        <li>Login</li>
+        <li>Sign Up</li>
+        {% endif %}
 
       </ul>
     </nav>
