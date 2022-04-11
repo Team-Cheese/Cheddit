@@ -21,3 +21,4 @@ def channels_details(request , channel_id) :
 class ChannelCreate(CreateView):
   model = Channel
   fields = '__all__'
+  success_url = '/channels/'
