@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import uuid 
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Channel(models.Model):
@@ -25,6 +26,7 @@ class Thread(models.Model):
   # created_by = models.ForeignKey(Profile)
   title = models.CharField('Thread Title',max_length=100, unique=True)
   created = models.DateTimeField(auto_now_add=True)
+  body = RichTextField(blank=True, null=True)
   
 
 class Photo(models.Model):
