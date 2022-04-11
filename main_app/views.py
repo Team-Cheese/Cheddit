@@ -20,4 +20,4 @@ def channels_details(request , channel_id) :
 
 class ChannelCreate(CreateView):
   model = Channel
-  fields = ['title', 'description']
+  fields = '__all__'
