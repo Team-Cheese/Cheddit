@@ -7,9 +7,11 @@
 {% block content %}
 <section class="card-container">
     <p> {{channel.title}}</p>
-      <button>View</button>
+
     </a>
   <h1>wow this is the detail</h1>
 </section>
+
+<a href="{% url 'thread_create' channels.id %}">Create a Thread!</a>
 
 {% endblock content %}

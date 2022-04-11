@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
-from .models import Channel
+from .models import Channel, Thread
 
 def home(request):
   return render(request, 'home.html')
@@ -20,5 +20,10 @@ def channels_details(request , channel_id) :
 
 class ChannelCreate(CreateView):
   model = Channel
+  fields = '__all__'
+  success_url = '/channels/'
+
+class ThreadCreate(CreateView):
+  model = Thread
   fields = '__all__'
   success_url = '/channels/'
