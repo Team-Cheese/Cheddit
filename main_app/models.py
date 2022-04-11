@@ -19,3 +19,15 @@ class Profile(models.Model):
 
   def __str__(self):
     return f'{self.screen_name} Profile'
+
+class Thread(models.Model):
+  id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+  # created_by = models.ForeignKey(Profile)
+  
+
+class Photo(models.Model):
+  url = models.CharField(max_length=250)
+  thread = models.OneToOneField(Thread, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return f'Photo for thread {self.thread_id}'
