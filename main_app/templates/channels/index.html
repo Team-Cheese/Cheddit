@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/cat-index.css' %}"/>
+{% endblock %}
+
+{% block content %}
+<section class="card-container">
+  {% for cat in cats %}
+
+  {% endfor %}
+</section>
+
+{% endblock content %}
