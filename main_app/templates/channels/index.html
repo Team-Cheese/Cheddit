@@ -6,12 +6,10 @@
 
 {% block content %}
 <section class="card-container">
-  
   {% for channel in channels %}
-  <a href="/channel/{{channel.id}}">
-    <p> {{channel.title}}</p>
+    <a href="/channel/{{channel.id}}">
+      <p> {{channel.title}}</p>
     </a>
-  {% endfor %}
-</section>
-
+  </section>
+  {% endfor %} 
 {% endblock content %}

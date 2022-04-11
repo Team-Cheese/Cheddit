@@ -8,10 +8,6 @@ def home(request):
 def about(request):
   return render(request, 'about.html')
 
-# class Channel(CreateView) :
-#   model = Channel
-#   fields = '__all__'
-
 
 def channels_index(request) :
   channels = Channel.objects.all()
