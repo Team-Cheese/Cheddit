@@ -18,4 +18,4 @@ class Profile(models.Model):
   screen_name=models.TextField(max_length=15, unique=True)
 
   def __str__(self):
-    return f'{self.user.screen_name} Profile'
+    return f'{self.screen_name} Profile'
