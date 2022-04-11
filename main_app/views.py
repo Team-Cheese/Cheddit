@@ -8,11 +8,11 @@ def home(request):
 def about(request):
   return render(request, 'about.html')
 
-class Channel(CreateView) :
-  model = Channel
-  fields = '__all__'
+# class Channel(CreateView) :
+#   model = Channel
+#   fields = '__all__'
 
 
-def channel_index(request) :
+def channels_index(request) :
   channels = Channel.objects.all()
-  return render(request, 'channel/index.html', {'channel': channels})
+  return render(request, 'channels/index.html', {'channels': channels})

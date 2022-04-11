@@ -6,9 +6,10 @@
 
 {% block content %}
 <section class="card-container">
-  {% for cat in cats %}
-
+  {% for channel in channels %}
+    <p> {{channel.title}}</p>
   {% endfor %}
+  <h1>wow</h1>
 </section>
 
 {% endblock content %}
