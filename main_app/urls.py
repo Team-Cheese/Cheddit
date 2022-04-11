@@ -5,4 +5,5 @@ urlpatterns = [
   path('', views.home, name='home'),
   path('about/', views.about, name='about'),
   path('channels/', views.channels_index, name='channels_index'),
+  path('channels/<init:channel_id/', views.channels_detail, name='channels_detail'),
 ]
