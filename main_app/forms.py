@@ -4,4 +4,4 @@ from .models import Thread
 class ThreadForm(ModelForm):
   class Meta:
     model = Thread
-    fields = ['title', 'body']
+    fields = ['title', 'body', 'header_image']
