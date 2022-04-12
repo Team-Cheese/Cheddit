@@ -6,10 +6,7 @@
 
 {% block content %}
 <section class="card-container">
-    <p> {{channel.title}}</p>
-      <button>View</button>
-    </a>
-  <h1>wow this is the detail</h1>
+    <p>Welcome to  c/{{channels.title}}!!</p>
 </section>
 
 <form action="" method="POST" class="form">
@@ -17,5 +14,18 @@
 {% comment %} <a href="{% url channels_delete channels.id %}">Cancel</a> {% endcomment %}
   <button type="submit" class="btn danger">Yes - Delete!</button>
 </form>
+
+<h3>Add a thread</h3>
+<form action="{% url 'thread_create' channels.id %}" method="POST">
+    {% csrf_token %}
+    {{ thread_form.as_p }}
+    <button type="submit">Create Thread</button>
+</form>
+
+{% for thread in channels.thread_set.all %}
+    <h1>{{thread.title}}</h1>
+    <p>{{thread.body}}</h1>
+
+{% endfor %}
 
 {% endblock content %}
