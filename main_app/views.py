@@ -5,6 +5,8 @@ from .models import Channel, Thread
 
 def home(request):
   return render(request, 'home.html')
+from django.contrib.auth.views import LoginView
+
 
 def about(request):
   return render(request, 'about.html')
