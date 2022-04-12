@@ -29,6 +29,7 @@ class Thread(models.Model):
   created = models.DateTimeField(auto_now_add=True)
   body = RichTextField(blank=True, null=True)
   channel = models.ForeignKey(Channel, on_delete=models.CASCADE, null=True)
+
   
 
 class Photo(models.Model):
