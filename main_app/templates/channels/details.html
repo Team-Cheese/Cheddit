@@ -23,9 +23,11 @@
 </form>
 
 {% for thread in channels.thread_set.all %}
-    <h1>{{thread.title}}</h1>
-    <p>{{thread.body | safe }}</h1>
-
-{% endfor %}
+    <div style="border: 1px solid black">
+        <h1>{{thread.title}}</h1>
+        <p>{{thread.body | safe }}</h1>
+        <button>View Thread</button>
+    </div>
+    {% endfor %}
 
 {% endblock content %}
