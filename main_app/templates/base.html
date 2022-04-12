@@ -1,29 +1,33 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>cheddit</title>
-    {% block head %} {% endblock %}
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cheddit</title>
+  {% block head %}
+  {% endblock %}
+
+    {% block content %} 
+    
+    {% endblock %}
   </head>
   <body>
     <nav>
       <ul>
         {% if user.is_authenticated%}
-        {% comment %} <li><a href="{% url'channels' %}">all channels</a></li> {% endcomment %}
-        <li><a href="{% url 'logout' %}">Logout<a/></li>
+        <li><a href="/channels"> All Channels</a></li>
+        <li><a href="{% url 'logout' %}">Logout</li>
         {% else %}
         <li>All Channels</li>
-        <li><a href="{% url 'home' %}">Login<a/></li>
-          <li>Sign Up</li>
-          <li><a href="{% url 'channels_create' %}">create<a/></li>
+        <li><a href="{% url 'home' %}">Login</li>
+        <li>Sign Up</li>
         {% endif %}
-
       </ul>
     </nav>
 
-    <main>{% block content %} {% endblock %}</main>
-  </body>
+
 </html>
