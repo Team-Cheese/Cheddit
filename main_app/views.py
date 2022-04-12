@@ -58,12 +58,13 @@ def signup(request):
     profile_form = UserProfileForm(request.POST, instance=request.user.userprofile)
     if user_form.is_valid() and profile_form.is_valid():
       user = user_form.save()
-      profile_form.save()
+      userprofile = profile_form.save()
       login(request, user)
       return redirect('')
     else:
       error_message = 'Invalid sign up - try again'
-  form = UserCreationForm()
-  context = {'form': form, 'error_message': error_message}
+  user_form = UserCreationForm()
+  profile_form = UserProfileForm()
+  context = {'user_form': user_form, 'profile_form': profile_form, 'error_message': error_message}
   return render(request, 'signup.html', context)
 
