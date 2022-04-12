@@ -16,7 +16,7 @@ class Channel(models.Model):
     return self.title
   
   def get_absolute_url(self):
-    return reverse('channel_detail', kwargs={'channel_id' : self.id})
+    return reverse('channels_details', kwargs={'channel_id' : self.id})
 
 class UserProfile(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/cat-index.css' %}"/>
+
 {% endblock %}
 
 {% block content %}
@@ -17,5 +17,5 @@
 {% comment %} <a href="{% url channels_delete channels.id %}">Cancel</a> {% endcomment %}
   <button type="submit" class="btn danger">Yes - Delete!</button>
 </form>
-
+<a href="{% url 'channels_update' channels.id %}">Edit</a>
 {% endblock content %}
