@@ -12,8 +12,16 @@
   </head>
   <body>
     <header>
+      
       <nav>
+          <section class="logo-container">
+            <img 
+              src="{% static 'images/cheese.svg' %}" 
+              alt="Text reads: Cat Collector"
+            />
+          </section>
         <ul>
+          
           {% if user.is_authenticated%}
           <li>All Channels</li>
           <li><a href="{% url 'logout' %}">Logout</a></li>
