@@ -54,9 +54,11 @@ class ChannelDelete(DeleteView) :
 def signup(request):
   error_message = ''
   if request.method == 'POST':
-    user_form = UserCreationForm(request.POST)
-    if user_form.is_valid():
+    user_form = UserCreationForm(request.POST, instance=request.user)
+    profile_form = UserProfileForm(request.POST, instance=request.user.userprofile)
+    if user_form.is_valid() and profile_form.is_valid():
       user = user_form.save()
+      profile_form.save()
       login(request, user)
       return redirect('')
     else:
