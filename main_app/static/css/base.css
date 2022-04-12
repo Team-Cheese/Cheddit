@@ -30,7 +30,7 @@ body {
   --nav-bg-ff: rgba(211, 128, 44, 0.9);
   --borders: rgb(248, 100, 36) solid 2px;
   --text-color: rgb(17, 20, 17);
-  --link-hover-color: rgb(16, 56, 158);
+  --link-hover-color: rgb(35, 80, 195);
   --button-bg: rgb(245, 245, 245);
   --button-bg-hover: rgb(226, 226, 226);
   --submit: rgb(26, 128, 0);
@@ -54,7 +54,7 @@ header {
 
 nav {
   margin: 10px;
-  float: right;
+  
 }
 
 ul {
@@ -76,6 +76,7 @@ nav a {
   color: var(--text-color);
   font-weight: 600;
   font-size: 16px;
+  
 }
 
 nav a:hover {
@@ -83,13 +84,22 @@ nav a:hover {
 }
 
 nav ul {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  float: right;
 }
 
 nav li {
   padding: 5px 8px;
+  
 }
 
+
+  img {
+  width: 3%;
+  height: 3%;
+  float: left;
+  margin-left: 5rem;
+  }
