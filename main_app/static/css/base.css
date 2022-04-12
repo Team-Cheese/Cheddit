@@ -74,9 +74,8 @@ h2 {
 nav a {
   text-decoration: none;
   color: var(--text-color);
-  font-weight: 600;
-  font-size: 16px;
-  
+  font-weight: 300;
+  font-size: 20px;
 }
 
 nav a:hover {
@@ -92,7 +91,7 @@ nav ul {
 }
 
 nav li {
-  padding: 5px 8px;
+  padding: 0px 20px 0px 20px;
   
 }
 
