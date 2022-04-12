@@ -64,7 +64,7 @@ def signup(request):
     else:
       error_message = 'Invalid sign up - try again'
   user_form = UserCreationForm()
-  profile_form = UserProfileForm()
-  context = {'user_form': user_form, 'profile_form': profile_form, 'error_message': error_message}
+  userprofile_form = UserProfileForm()
+  context = {'user_form': user_form, 'userprofile_form': userprofile_form, 'error_message': error_message}
   return render(request, 'signup.html', context)
 
