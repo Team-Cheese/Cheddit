@@ -11,19 +11,21 @@
     {% block head %} {% endblock %}
   </head>
   <body>
-    <nav>
-      <ul>
-        {% if user.is_authenticated%}
-        <li>All Channels</li>
-        <li><a href="{% url 'logout' %}">Logout</a></li>
-        {% else %}
-        <li><a href="{% url 'home' %}">All Channels</a></li>
-        <li><a href="{% url 'home' %}">Login</a></li>
-        <li><a href="{% url 'home' %}">Sign Up</a></li>
-        {% endif %}
+    <header>
+      <nav>
+        <ul>
+          {% if user.is_authenticated%}
+          <li>All Channels</li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'home' %}">All Channels</a></li>
+          <li><a href="{% url 'home' %}">Login</a></li>
+          <li><a href="{% url 'home' %}">Sign Up</a></li>
+          {% endif %}
 
-      </ul>
-    </nav>
+        </ul>
+      </nav>
+    </header>
 
     <main>{% block content %} {% endblock %}</main>
   </body>
