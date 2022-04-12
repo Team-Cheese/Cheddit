@@ -2,15 +2,20 @@
 {% load static %}
 
 {% block head %}
-
+<link rel="stylesheet" href="">
 {% endblock %}
 
 {% block content %}
 
+{%if object%}
+<div class="page-header">
+  <h1> edit</h1>
+</div>
+{% else%}
 <div class="page-header">
   <h1>Create a New Channel!</h1>
 </div>
-
+{%endif%}
 <form method="POST" class="form-container">
   {% csrf_token %}
   <table>

@@ -50,3 +50,4 @@ class ChannelUpdate(UpdateView) :
 class ChannelDelete(DeleteView) :
   model = Channel
   success_url = '/channels/'
+
