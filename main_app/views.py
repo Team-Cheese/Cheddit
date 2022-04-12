@@ -11,16 +11,11 @@ from main_app.forms import ThreadForm
 from .models import Channel, Thread
 from .forms import ThreadForm
 
-
-def home(request):
-  return render(request, 'home.html')
-from django.contrib.auth.views import LoginView
-
-
+class Home(LoginView):
+  template_name = 'home.html'
 
 def about(request):
   return render(request, 'about.html')
-
 
 def channels_index(request) :
   channels = Channel.objects.all()
@@ -39,7 +34,6 @@ def thread_create(request, channel_id):
     new_thread.channel_id = channel_id
     new_thread.save()
   return redirect('/channels/', channel_id=channel_id)
-
 
 class ChannelCreate(CreateView):
   model = Channel
