@@ -17,8 +17,8 @@
         <li><a href="{% url 'logout' %}">Logout<a/></li>
         {% else %}
         <li>All Channels</li>
-        <li><a href="{% url 'home' %}">Login</a></li>
-        <li>Sign Up</li>
+        <li><a href="{% url 'login' %}">Log in</a></li>
+        <li><a href="{% url 'logout' %}">Log out</a></li>
         {% endif %}
 
       </ul>
