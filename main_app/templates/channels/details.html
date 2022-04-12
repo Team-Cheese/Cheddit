@@ -28,8 +28,10 @@
 </form>
 
 {% for thread in channels.thread_set.all %}
+  <a href="{% url 'threads_details' thread.id %}">
     <h1>{{thread.title}}</h1>
-    <p>{{thread.body | safe }}</h1>
+  </a>
+  <p>{{thread.body | safe }}</h1>
 
 {% endfor %}
 
