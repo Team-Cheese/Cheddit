@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cheddit</title>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     {% block head %} {% endblock %}
   </head>
   <body>
@@ -14,11 +15,11 @@
       <ul>
         {% if user.is_authenticated%}
         <li>All Channels</li>
-        <li><a href="{% url 'logout' %}">Logout<a/></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
         {% else %}
-        <li>All Channels</li>
+        <li><a href="{% url 'home' %}">All Channels</a></li>
         <li><a href="{% url 'home' %}">Login</a></li>
-        <li>Sign Up</li>
+        <li><a href="{% url 'home' %}">Sign Up</a></li>
         {% endif %}
 
       </ul>
