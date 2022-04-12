@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+<pre>{{thread}}</pre>
+{% for thread in channels.thread_set.all%}
+<section class="card-container">
+    <p>Welcome {{thread}}!!</p>
+</section>
+{% endfor %}
+
+{% endblock content %}

@@ -23,7 +23,6 @@ def channels_index(request) :
 
 def channels_details(request , channel_id) :
   channels = Channel.objects.get(id=channel_id)
-
   thread_form = ThreadForm()
   return render(request, 'channels/details.html', {'channels': channels, 'thread_form': thread_form})
 
@@ -34,6 +33,12 @@ def thread_create(request, channel_id):
     new_thread.channel_id = channel_id
     new_thread.save()
   return redirect('/channels/', channel_id=channel_id)
+
+def threads_details(request, thread_id):
+  print(thread_id)
+  thread = Thread.objects.get(id=thread_id)
+  print(thread)
+  return render(request, 'thread/details.html', {'thread': thread})
 
 class ChannelCreate(CreateView):
   model = Channel
@@ -50,4 +55,5 @@ class ChannelUpdate(UpdateView) :
 class ChannelDelete(DeleteView) :
   model = Channel
   success_url = '/channels/'
+
 

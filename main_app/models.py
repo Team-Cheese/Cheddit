@@ -33,8 +33,6 @@ class Thread(models.Model):
   body = RichTextField(blank=True, null=True)
   channel = models.ForeignKey(Channel, on_delete=models.CASCADE, null=True)
 
-  
-
 class Photo(models.Model):
   url = models.CharField(max_length=250)
   thread = models.OneToOneField(Thread, on_delete=models.CASCADE)
