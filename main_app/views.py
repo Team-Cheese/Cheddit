@@ -3,6 +3,7 @@ from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from .models import Channel
 from django.contrib.auth.views import LoginView
+
 class Home(LoginView):
   template_name = 'home.html'
 
