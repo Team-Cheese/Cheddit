@@ -17,13 +17,14 @@
 <h3>Add a thread</h3>
 <form action="{% url 'thread_create' channels.id %}" method="POST">
     {% csrf_token %}
+    {{ thread_form.media}}
     {{ thread_form.as_p }}
     <button type="submit">Create Thread</button>
 </form>
 
 {% for thread in channels.thread_set.all %}
     <h1>{{thread.title}}</h1>
-    <p>{{thread.body}}</h1>
+    <p>{{thread.body | safe }}</h1>
 
 {% endfor %}
 
