@@ -16,7 +16,7 @@
     <button type="submit">Create Thread</button>
 </form>
 
-{% for thread in channel.thread_set.all %}
+{% for thread in channels.thread_set.all %}
     <h1>{{thread.title}}</h1>
     <p>{{thread.body}}</h1>
 
