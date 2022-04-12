@@ -37,7 +37,7 @@ def thread_create(request, channel_id):
 def threads_details(request, thread_id):
   print(thread_id)
   thread = Thread.objects.get(id=thread_id)
-  print(thread)
+  print(thread.title)
   return render(request, 'thread/details.html', {'thread': thread})
 
 class ChannelCreate(CreateView):
