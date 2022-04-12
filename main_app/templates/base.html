@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,12 +12,13 @@
     <nav>
       <ul>
         {% if user.is_authenticated%}
-        <li>All Channels</li>
+        {% comment %} <li><a href="{% url'channels' %}">all channels</a></li> {% endcomment %}
         <li><a href="{% url 'logout' %}">Logout<a/></li>
         {% else %}
         <li>All Channels</li>
-        <li><a href="{% url 'home' %}">Login</a></li>
-        <li>Sign Up</li>
+        <li><a href="{% url 'home' %}">Login<a/></li>
+          <li>Sign Up</li>
+          <li><a href="{% url 'channels_create' %}">create<a/></li>
         {% endif %}
 
       </ul>

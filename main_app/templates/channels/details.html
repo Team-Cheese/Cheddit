@@ -12,4 +12,10 @@
   <h1>wow this is the detail</h1>
 </section>
 
+<form action="" method="POST" class="form">
+  {% csrf_token %}
+{% comment %} <a href="{% url channels_delete channels.id %}">Cancel</a> {% endcomment %}
+  <button type="submit" class="btn danger">Yes - Delete!</button>
+</form>
+
 {% endblock content %}
