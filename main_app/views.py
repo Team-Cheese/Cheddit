@@ -25,7 +25,3 @@ class ChannelCreate(CreateView):
   fields = '__all__'
   success_url = '/channels/'
 
-class ThreadCreate(CreateView):
-  model = Thread
-  fields = '__all__'
-  success_url = '/channels/'

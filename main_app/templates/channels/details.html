@@ -7,10 +7,13 @@
 {% block content %}
 <section class="card-container">
     <p>Welcome to  c/{{channels.title}}!!</p>
-
-
 </section>
 
-<a href="{% url 'thread_create' channels.id %}">Create a Thread!</a>
+<h3>Add a thread</h3>
+<form action="{% url 'thread_create' channels.id %}" method="POST">
+    {% csrf_token %}
+    
+
+
 
 {% endblock content %}
