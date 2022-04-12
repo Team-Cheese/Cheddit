@@ -9,9 +9,6 @@
 
 {% block content %}
 
-</section>
-
-
 {% if not user.is_authenticated %}
   <section>
     <form action="{% url 'home' %}" method="post" class="login">
@@ -22,11 +19,6 @@
       <button type="submit" class="btn submit">Login</button>
     </form>
   </section>
-  {% else %}
-  <section>
-    <h1>User is authenticated</h1>
-    </section>
 {% endif %}
 
 {% endblock %}
-

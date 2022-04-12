@@ -1,15 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/cat-index.css' %}"/>
+
 {% endblock %}
 
 {% block content %}
 <section class="card-container">
-    <p> {{channel.title}}</p>
-      <button>View</button>
-    </a>
-  <h1>wow this is the detail</h1>
+    <p>Welcome to  c/{{channels.title}}!!</p>
 </section>
+
+<form action="{% url 'channels_delete' channels.id %}" method="POST" class="form">
+  {% csrf_token %}
+  <button type="submit" class="btn danger">Delete!</button>
+</form>
+
+<h3>Add a thread</h3>
+<form action="{% url 'thread_create' channels.id %}" method="POST">
+    {% csrf_token %}
+    {{ thread_form.media}}
+    {{ thread_form.as_p }}
+    <button type="submit">Create Thread</button>
+</form>
+
+{% for thread in channels.thread_set.all %}
+    <h1>{{thread.title}}</h1>
+    <p>{{thread.body | safe }}</h1>
+
+{% endfor %}
 
 {% endblock content %}
