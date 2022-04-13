@@ -27,12 +27,13 @@ html {
 }
 
 
-
-img{
-    margin-top: 20px;
-}
-
 a{
     text-decoration: none;
 }
 
+.card-container:hover {
+  background-color: lightgreen;
+}
+.card-container:active {
+  background-color: rgb(144, 144, 238);
+}
