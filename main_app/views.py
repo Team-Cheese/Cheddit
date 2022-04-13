@@ -35,10 +35,10 @@ def thread_create(request, channel_id):
   return redirect('/channels/', channel_id=channel_id)
 
 def threads_details(request, thread_id):
-  print(thread_id)
   thread = Thread.objects.get(id=thread_id)
+  comment_form = CommentForm()
   print(thread.title)
-  return render(request, 'thread/details.html', {'thread': thread})
+  return render(request, 'thread/details.html', {'thread': thread, 'comment_form': comment_form})
 
 def comment_create(request, thread_id):
   comment_form = CommentForm(request.POST)

@@ -11,4 +11,13 @@
     <p>Welcome {{thread.title}}!!</p>
 </section>
 
+<form action="{% url 'comment_create' thread.id %}" method="POST">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button type="submit">Add comment</button>
+</form>
+
+{% for comment in thread.comment_set.all %}
+    <p>{{ comment.body }}</p>
+{% endfor %}
 {% endblock content %}
