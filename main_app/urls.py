@@ -12,6 +12,6 @@ urlpatterns = [
   path('thread/<str:thread_id>/', views.threads_details, name='threads_details'),
   path('channels/<str:pk>/update>/', views.ChannelUpdate.as_view(), name='channels_update'),
   path('channels/<str:pk>/delete>/', views.ChannelDelete.as_view(), name='channels_delete'),
-  # path('accounts/signup', views.signup, name='signup')
+  path('accounts/signup', views.signup, name='signup'),
+  path('accounts/profile', views.profile, name='profile')
 ]
-
