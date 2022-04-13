@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Thread, UserProfile
+from .models import Thread, UserProfile, Comment
 
 class ThreadForm(ModelForm):
   class Meta:
@@ -11,3 +11,7 @@ class UserProfileForm(ModelForm):
     model = UserProfile
     fields = ['screen_name']
 
+class CommentForm(ModelForm):
+  class Meta:
+    model = Comment
+    fields = ['body']
