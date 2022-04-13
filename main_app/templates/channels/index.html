@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/cat-index.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}"/>
 {% endblock %}
 
 {% block content %}
+
 <section class="card-container">
   <a href="{% url 'channels_create'%}">
     <button>Create a channel</button></a>
