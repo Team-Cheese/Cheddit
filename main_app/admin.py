@@ -6,4 +6,4 @@ from .models import Channel, UserProfile, Thread, Photo
 admin.site.register(Channel)
 admin.site.register(UserProfile)
 admin.site.register(Thread)
-admin.site.register(Photo)
+
