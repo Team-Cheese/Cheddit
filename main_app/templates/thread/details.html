@@ -8,7 +8,8 @@
 
 
 <section class="card-container">
-    <p>Welcome {{thread.title}}!!</p>
+    <p>{{thread.title}}!!</p>
+    <p>{{thread.body}}
 </section>
 
 <form action="{% url 'comment_create' thread.id %}" method="POST">

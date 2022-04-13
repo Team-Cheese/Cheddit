@@ -36,6 +36,9 @@ class Thread(models.Model):
   body = RichTextField(blank=True, null=True)
   channel = models.ForeignKey(Channel, on_delete=models.CASCADE, null=True)
 
+  def __str__(self):
+    return {self.body}
+
 
 class Comment(models.Model):
   id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
