@@ -31,8 +31,9 @@ def thread_create(request, channel_id):
   if form.is_valid():
     new_thread = form.save(commit=False)
     new_thread.channel_id = channel_id
+    print('hello',channel_id)
     new_thread.save()
-  return redirect('/channels/', channel_id=channel_id)
+  return redirect(f'/channels/{channel_id}', channel_id=channel_id)
 
 def threads_details(request, thread_id):
   thread = Thread.objects.get(id=thread_id)
@@ -46,7 +47,7 @@ def comment_create(request, thread_id):
     new_comment = comment_form.save(commit=False)
     new_comment.thread_id = thread_id
     new_comment.save()
-  return redirect('/channels/', thread_id=thread_id)
+  return redirect(f'/thread/{thread_id}', thread_id=thread_id)
 
 
 class ChannelCreate(CreateView):
@@ -67,7 +68,7 @@ class ChannelDelete(DeleteView) :
 
 class ThreadDelete(DeleteView) :
   model = Thread
-  success_url = '/channels/'
+  success_url = f'/channels/'
 
 class ThreadUpdate(UpdateView) :
   model = Thread
