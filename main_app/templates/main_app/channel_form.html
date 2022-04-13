@@ -11,18 +11,16 @@
 {%if object%}
   <h1> edit channels</h1>
   {% else%}
-  <div class="page-header">
     <a href="{% url 'channels_index' %}">
-      <button>Back to channels</button></a>
+      <button class='button pure-button pure-button-active'>Back to channels</button></a>
       <h1>Create a New Channel!</h1>
-    </div>
     {%endif%}
     <form method="POST" class="form-container">
       {% csrf_token %}
       <table>
         {{ form.as_table }}
       </table>
-      <button type="submit" class="btn submit">Submit!</button>
+      <button type="submit" class="btn submit button1 pure-button pure-button-active">Submit!</button>
     </form>
 </div>
 
