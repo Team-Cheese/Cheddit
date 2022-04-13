@@ -13,6 +13,7 @@ urlpatterns = [
   path('channels/<str:pk>/update>/', views.ChannelUpdate.as_view(), name='channels_update'),
   path('channels/<str:pk>/delete>/', views.ChannelDelete.as_view(), name='channels_delete'),
   path('thread/<str:pk>/delete>/', views.ThreadDelete.as_view(), name='threads_delete'),
+    path('thread/<str:pk>/update>/', views.ThreadUpdate.as_view(), name='threads_update'),
   path('accounts/signup', views.signup, name='signup'),
   path('accounts/profile', views.profile, name='profile')
 ]
