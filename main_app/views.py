@@ -54,17 +54,19 @@ class ChannelDelete(DeleteView) :
 def signup(request):
   error_message = ''
   if request.method == 'POST':
-    user_form = UserCreationForm(request.POST, instance=request.user)
-    profile_form = UserProfileForm(request.POST, instance=request.user.userprofile)
-    if user_form.is_valid() and profile_form.is_valid():
-      user = user_form.save()
-      userprofile = profile_form.save()
+    # This is how to create a 'user' form object
+    # that includes the data from the browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # This will add the user to the database
+      user = form.save()
+      # This is how we log a user in
       login(request, user)
-      return redirect('')
+      return redirect('cats_index')
     else:
       error_message = 'Invalid sign up - try again'
-  user_form = UserCreationForm()
-  userprofile_form = UserProfileForm()
-  context = {'user_form': user_form, 'userprofile_form': userprofile_form, 'error_message': error_message}
+  # A bad POST or a GET request, so render signup.html with an empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
   return render(request, 'signup.html', context)
 

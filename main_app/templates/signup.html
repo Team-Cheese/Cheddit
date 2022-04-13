@@ -14,11 +14,10 @@
 {% if error_message %}
   <p class="red-text">{{ error_message }}</p>
 {% endif %}
-<form action="" method="post" class="form-container" autocomplete="off">
+<form method="post">
   {% csrf_token %}
   <table>
-    {{ user_form.as_p }}
-    {{ userprofile_form.as_p }}
+    {{ form.as_table }}
   </table>
   <button type="submit" class="btn submit">Submit!</button>
 </form>
