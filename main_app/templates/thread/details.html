@@ -5,8 +5,6 @@
 {% endblock %}
 
 {% block content %}
-
-
 <section class="card-container">
     <p>{{thread.title}}!!</p>
     <p>{{thread.body}}
@@ -21,4 +19,15 @@
 {% for comment in thread.comment_set.all %}
     <p>{{ comment.body }}</p>
 {% endfor %}
+    <form action="{% url 'threads_delete' thread.id %}" method="POST" class="form">
+        {% csrf_token %}
+        <button type="submit" class="btn danger">Delete!</button>
+    </form>
+
+
+    <form action="{% url 'threads_update' thread.id %}" method="POST" class="form">
+        {% csrf_token %}
+        <button type="submit" class="btn danger">edit!</button>
+    </form>
+</section>
 {% endblock content %}
