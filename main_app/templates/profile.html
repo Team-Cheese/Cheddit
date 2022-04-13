@@ -5,11 +5,10 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}"/>
 {% endblock %}
 
-{% block content %}
+{% block content %}p
 
-<div class="page-header">
+<div>
   <h1>Set your screen name</h1>
-  <img src="{% static 'images/nerd-cat.svg' %}" alt="A cat using a computer"/>
 </div>
 {% if error_message %}
   <p class="red-text">{{ error_message }}</p>
@@ -19,7 +18,7 @@
     {% csrf_token %}
     {{ form.as_table }}
   </table>
-  <button type="submit" class="btn submit">Submit!</button>
+  <button type="submit" class="btn submit">Set profile name</button>
 </form>
 
 {% endblock %}

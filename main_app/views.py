@@ -62,7 +62,7 @@ def signup(request):
       user = form.save()
       # This is how we log a user in
       login(request, user)
-      return redirect('about')
+      return redirect('profile')
     else:
       error_message = 'Invalid sign up - try again'
   # A bad POST or a GET request, so render signup.html with an empty form
@@ -70,5 +70,22 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'signup.html', context)
 
-  
+def profile(request):
+  error_message = ''
+  if request.method == 'POST':
+    # This is how to create a 'user' form object
+    # that includes the data from the browser
+    form = UserProfileForm(request.POST)
+    if form.is_valid():
+      # This will add the user to the database
+      user = form.save()
+      # This is how we log a user in
+      return redirect('about')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # A bad POST or a GET request, so render signup.html with an empty form
+  form = UserProfileForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'profile.html', context)
+
 
