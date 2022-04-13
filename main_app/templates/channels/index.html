@@ -5,11 +5,13 @@
 {% endblock %}
 
 {% block content %}
-<section class="card-container">
-  {% for channel in channels %}
-    <a href="/channels/{{channel.id}}">
-      <p> {{channel.title}}</p>
-    </a>
-  </section>
+{% for channel in channels %}
+<div class="card-container">
+  <div class="container">
+        <a href="/channels/{{channel.id}}">
+          <p> Channel: {{channel.title}}</p>
+        </a>
+    </div>
+</div>
   {% endfor %} 
 {% endblock content %}
