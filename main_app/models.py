@@ -1,3 +1,4 @@
+from tkinter import CASCADE
 from django.db import models
 from django.contrib.auth.models import User
 import uuid 
@@ -34,6 +35,13 @@ class Thread(models.Model):
   created = models.DateTimeField(auto_now_add=True)
   body = RichTextField(blank=True, null=True)
   channel = models.ForeignKey(Channel, on_delete=models.CASCADE, null=True)
+
+
+class Comment(models.Model):
+  id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+  created = models.DateTimeField(auto_now_add=True)
+  body = RichTextField(blank=True, null=True)
+  thread = models.ForeignKey(Thread, on_delete=models.CASCADE, null=True)
 
 
 
