@@ -30,6 +30,7 @@
 {% for thread in channels.thread_set.all %}
     <div style="border: 1px solid black">
 
+      <a href="{% url 'threads_details' thread.id %}">
         <h1>{{ thread.title }}</h1>
         <p>{{ thread.body | safe }}</h1>
         <button>View Thread</button>
