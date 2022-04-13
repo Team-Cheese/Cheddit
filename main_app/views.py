@@ -46,7 +46,7 @@ def comment_create(request, thread_id):
     new_comment = comment_form.save(commit=False)
     new_comment.thread_id = thread_id
     new_comment.save()
-  return redirect('/channels', thread_id=thread_id)
+  return redirect('/channels/', thread_id=thread_id)
 
 
 class ChannelCreate(CreateView):
