@@ -18,22 +18,24 @@ html {
 }
 
 .card-container{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  max-width: 500px;
   margin: auto;
   text-align: center;
   font-family: arial;
   font-size: 5rem;
+  background-color: rgb(239, 187, 108);
 }
 
+body{
+    background-color: blanchedalmond;
+}
 
 a{
     text-decoration: none;
 }
 
 .card-container:hover {
-  background-color: lightgreen;
+  background-color: rgb(197, 234, 197);
 }
-.card-container:active {
-  background-color: rgb(144, 144, 238);
-}
+
