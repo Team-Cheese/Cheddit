@@ -4,7 +4,7 @@ from .models import Thread, UserProfile
 class ThreadForm(ModelForm):
   class Meta:
     model = Thread
-    fields = ['title', 'body', 'header_image']
+    fields = ['title', 'body']
 
 class UserProfileForm(ModelForm):
   class Meta:
