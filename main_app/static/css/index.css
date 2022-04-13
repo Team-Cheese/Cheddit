@@ -39,3 +39,14 @@ a{
   background-color: rgb(197, 234, 197);
 }
 
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    width: 10rem;
+    margin-top: 5rem;
+}
+
