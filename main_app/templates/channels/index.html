@@ -6,6 +6,8 @@
 
 {% block content %}
 <section class="card-container">
+  <a href="{% url 'channels_create'%}">
+    <button>Create a channel</button></a>
   {% for channel in channels %}
     <a href="/channels/{{channel.id}}">
       <p> {{channel.title}}</p>
