@@ -20,7 +20,7 @@
 </form>
 
 <h3>Add a thread</h3>
-<form action="{% url 'thread_create' channels.id %}" method="POST">
+<form action="{% url 'thread_create' channels.id %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ thread_form.media}}
     {{ thread_form.as_p }}
@@ -28,9 +28,11 @@
 </form>
 
 {% for thread in channels.thread_set.all %}
-    <h1>{{thread.title}}</h1>
-    <p>{{thread.body | safe }}</h1>
-
+    <div style="border: 1px solid black">
+        <img src="{{ thread.header_image.url }}">
+        <h1>{{ thread.title }}</h1>
+        <p>{{ thread.body | safe }}</h1>
+        <button>View Thread</button>
+    </div>
 {% endfor %}
-
 {% endblock content %}
