@@ -23,8 +23,9 @@ def channels_index(request) :
 
 def channels_details(request , channel_id) :
   channels = Channel.objects.get(id=channel_id)
+  print(channels.user.id)
   thread_form = ThreadForm()
-  return render(request, 'channels/details.html', {'channels': channels, 'thread_form': thread_form})
+  return render(request, 'channels/details.html', {'channels': channels, 'thread_form': thread_form, 'current_user': request.user.id})
 
 def thread_create(request, channel_id):
   form = ThreadForm(request.POST)

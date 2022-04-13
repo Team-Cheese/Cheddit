@@ -35,6 +35,7 @@ class Thread(models.Model):
   created = models.DateTimeField(auto_now_add=True)
   body = RichTextField(blank=True, null=True)
   channel = models.ForeignKey(Channel, on_delete=models.CASCADE, null=True)
+  user = models.ForeignKey(User, on_delete=models.CASCADE )
 
   def __str__(self):
     return {self.body}
@@ -45,6 +46,7 @@ class Comment(models.Model):
   created = models.DateTimeField(auto_now_add=True)
   body = RichTextField(blank=True, null=True)
   thread = models.ForeignKey(Thread, on_delete=models.CASCADE, null=True)
+  user = models.ForeignKey(User, on_delete=models.CASCADE )
 
 
 
