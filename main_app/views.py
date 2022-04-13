@@ -75,10 +75,10 @@ def profile(request):
   if request.method == 'POST':
     # This is how to create a 'user' form object
     # that includes the data from the browser
-    form = UserProfileForm(request.POST)
+    form = UserProfileForm(request.POST, instance=request.user)
     if form.is_valid():
       # This will add the user to the database
-      user = form.save()
+      form.save()
       # This is how we log a user in
       return redirect('about')
     else:
