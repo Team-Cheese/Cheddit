@@ -75,12 +75,15 @@ def profile(request):
   if request.method == 'POST':
     # This is how to create a 'user' form object
     # that includes the data from the browser
-    form = UserProfileForm(request.POST, instance=request.user)
+    form = UserProfileForm(request.POST)
     if form.is_valid():
+      form.instance.user = request.user
+      print(form)
+      print(request.user)
       # This will add the user to the database
       form.save()
       # This is how we log a user in
-      return redirect('about')
+      return redirect('http://localhost:8000/channels')
     else:
       error_message = 'Invalid sign up - try again'
   # A bad POST or a GET request, so render signup.html with an empty form
