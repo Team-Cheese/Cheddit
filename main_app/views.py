@@ -7,7 +7,7 @@ from django.views.generic.edit import CreateView
 from django.shortcuts import render, redirect
 from main_app.forms import ThreadForm
 from .models import Channel, Thread
-from .forms import ThreadForm, UserProfileForm
+from .forms import ThreadForm, UserProfileForm, CommentForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
@@ -35,10 +35,19 @@ def thread_create(request, channel_id):
   return redirect('/channels/', channel_id=channel_id)
 
 def threads_details(request, thread_id):
-  print(thread_id)
   thread = Thread.objects.get(id=thread_id)
+  comment_form = CommentForm()
   print(thread.title)
-  return render(request, 'thread/details.html', {'thread': thread})
+  return render(request, 'thread/details.html', {'thread': thread, 'comment_form': comment_form})
+
+def comment_create(request, thread_id):
+  comment_form = CommentForm(request.POST)
+  if comment_form.is_valid():
+    new_comment = comment_form.save(commit=False)
+    new_comment.thread_id = thread_id
+    new_comment.save()
+  return redirect('/channels/', thread_id=thread_id)
+
 
 class ChannelCreate(CreateView):
   model = Channel
