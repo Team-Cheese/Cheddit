@@ -29,7 +29,7 @@
 
 {% for thread in channels.thread_set.all %}
     <div style="border: 1px solid black">
-        <img src="{{ thread.header_image.url }}">
+        {% comment %} <img src="{{ thread.header_image.url }}"> {% endcomment %}
         <h1>{{ thread.title }}</h1>
         <p>{{ thread.body | safe }}</h1>
         <button>View Thread</button>
