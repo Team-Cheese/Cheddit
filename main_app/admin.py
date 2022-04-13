@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Channel, UserProfile, Thread, Photo
+from .models import Channel, UserProfile, Thread
 
 
 # Register your models here.
