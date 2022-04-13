@@ -1,3 +1,4 @@
+from tkinter import CASCADE
 from django.db import models
 from django.contrib.auth.models import User
 import uuid 
@@ -33,13 +34,17 @@ class Thread(models.Model):
   title = models.CharField('Thread Title',max_length=100, unique=True)
   created = models.DateTimeField(auto_now_add=True)
   body = RichTextField(blank=True, null=True)
-  header_image = models.ImageField(null=True, blank=True, upload_to="images/")
   channel = models.ForeignKey(Channel, on_delete=models.CASCADE, null=True)
 
-class Photo(models.Model):
-  url = models.CharField(max_length=250)
-  thread = models.OneToOneField(Thread, on_delete=models.CASCADE)
-
   def __str__(self):
-    return f'Photo for thread {self.thread_id}'
+    return {self.body}
+
+
+class Comment(models.Model):
+  id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+  created = models.DateTimeField(auto_now_add=True)
+  body = RichTextField(blank=True, null=True)
+  thread = models.ForeignKey(Thread, on_delete=models.CASCADE, null=True)
+
+
 

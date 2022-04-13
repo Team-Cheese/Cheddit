@@ -22,17 +22,19 @@
 <h3>Add a thread</h3>
 <form action="{% url 'thread_create' channels.id %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ thread_form.media}}
+
     {{ thread_form.as_p }}
     <button type="submit">Create Thread</button>
 </form>
 
 {% for thread in channels.thread_set.all %}
     <div style="border: 1px solid black">
-        {% comment %} <img src="{{ thread.header_image.url }}"> {% endcomment %}
-        <h1>{{ thread.title }}</h1>
-        <p>{{ thread.body | safe }}</h1>
+
+      <h1>{{ thread.title }}</h1>
+      <p>{{ thread.body | safe }}</h1>
+        <a href="{% url 'threads_details' thread.id %}">
         <button>View Thread</button>
+        </a>
     </div>
 {% endfor %}
 {% endblock content %}

@@ -9,10 +9,12 @@
 
 {%if object%}
 <div class="page-header">
-  <h1> edit</h1>
+  <h1> edit channels</h1>
 </div>
 {% else%}
 <div class="page-header">
+  <a href="{% url 'channels_index' %}">
+    <button>Back to channels</button></a>
   <h1>Create a New Channel!</h1>
 </div>
 {%endif%}
