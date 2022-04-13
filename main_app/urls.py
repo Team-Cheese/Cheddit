@@ -1,7 +1,6 @@
 from django.urls import path
 from . import views
-from django.conf import settings
-from django.conf.urls.static import static
+
 
 urlpatterns = [
   path('', views.Home.as_view(), name='home'),
@@ -13,4 +12,4 @@ urlpatterns = [
   path('channels/<str:pk>/update>/', views.ChannelUpdate.as_view(), name='channels_update'),
   path('channels/<str:pk>/delete>/', views.ChannelDelete.as_view(), name='channels_delete'),
   # path('accounts/signup', views.signup, name='signup')
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
