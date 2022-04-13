@@ -5,11 +5,12 @@
 {% endblock %}
 
 {% block content %}
-
+<div class='button-container'>
+<a href="{% url 'channels_create'%}">
+<button class='button pure-button pure-button-active'>Create a channel</button></a>
+</div>
+{% for channel in channels %}
 <section class="card-container">
-  <a href="{% url 'channels_create'%}">
-    <button>Create a channel</button></a>
-  {% for channel in channels %}
     <a href="/channels/{{channel.id}}">
       <p> {{channel.title}}</p>
     </a>
