@@ -2,30 +2,40 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cheddit</title>
-  {% block head %}
-  {% endblock %}
-
-    {% block content %} 
-    
-    {% endblock %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cheddit</title>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    {% block head %} {% endblock %}
   </head>
   <body>
-    <nav>
-      <ul>
-        {% if user.is_authenticated%}
-        <li>All Channels</li>
-        <li><a href="{% url 'logout' %}">Logout<a/></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-        {% else %}
-        <li>All Channels</li>
-        <li><a href="{% url 'home' %}">Log in</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-        {% endif %}
-      </ul>
-    </nav>
+    <header>
+      
+      <nav>
+          
+            <img 
+              src="{% static 'images/cheese.svg' %}" 
+              alt="Text reads: Cat Collector"
+            />
+          
+        <ul>
+          
+          {% if user.is_authenticated%}
+          <li><a href="{% url 'home' %}">All Channels</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          {% else %}
+          <li><a href="{% url 'home' %}">All Channels</a></li>
+          <li><a href="{% url 'home' %}">Login</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          {% endif %}
+
+        </ul>
+      </nav>
+    </header>
+    <main>{% block content %} {% endblock %}</main>
+  </body>
 </html>

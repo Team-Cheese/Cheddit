@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 import uuid 
 from ckeditor.fields import RichTextField
 from django.urls import reverse
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 # Create your models here.
 class Channel(models.Model):
   title = models.CharField('Channel Title', max_length=100, unique=True)
@@ -31,9 +33,8 @@ class Thread(models.Model):
   title = models.CharField('Thread Title',max_length=100, unique=True)
   created = models.DateTimeField(auto_now_add=True)
   body = RichTextField(blank=True, null=True)
+  header_image = models.ImageField(null=True, blank=True, upload_to="images/")
   channel = models.ForeignKey(Channel, on_delete=models.CASCADE, null=True)
-
-  
 
 class Photo(models.Model):
   url = models.CharField(max_length=250)
