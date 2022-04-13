@@ -7,9 +7,16 @@
 
 {% block content  %}
 
+{% if object%}
+<div class="page-header">
+  <h1> edit Thread!</h1>
+</div>
+{%else %}
 <div class="page-header">
   <h1>Create a New Thread!</h1>
 </div>
+{%endif%}
+
 
 <form method="POST" class="form-container">
   {% csrf_token %}

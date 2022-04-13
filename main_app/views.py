@@ -72,6 +72,7 @@ class ThreadDelete(DeleteView) :
 class ThreadUpdate(UpdateView) :
   model = Thread
   fields = '__all__'
+  success_url = '/channels/'
 
 def signup(request):
   error_message = ''
