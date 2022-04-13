@@ -55,7 +55,10 @@ class ChannelUpdate(UpdateView) :
 class ChannelDelete(DeleteView) :
   model = Channel
   success_url = '/channels/'
-  
+class ThreadDelete(DeleteView) :
+  model = Thread
+  success_url = '/channels/'
+
 def signup(request):
   error_message = ''
   if request.method == 'POST':
