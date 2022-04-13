@@ -27,7 +27,7 @@ def channels_details(request , channel_id) :
   return render(request, 'channels/details.html', {'channels': channels, 'thread_form': thread_form})
 
 def thread_create(request, channel_id):
-  form = ThreadForm(request.POST)
+  form = ThreadForm(request.POST, request.FILES)
   if form.is_valid():
     new_thread = form.save(commit=False)
     new_thread.channel_id = channel_id
