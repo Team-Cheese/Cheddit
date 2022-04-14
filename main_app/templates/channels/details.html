@@ -24,7 +24,7 @@
   <h3>Add a thread</h3>
   <form action="{% url 'thread_create' channels.id %}" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
-
+      {{ thread_form.media }}
       {{ thread_form.as_p }}
       <button type="submit" class="button pure-button pure-button-active">Create Thread</button>
   </form>
