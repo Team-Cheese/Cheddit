@@ -44,28 +44,21 @@ def comment_create(request, thread_id):
     new_comment.thread_id = thread_id
     new_comment.save()
   return redirect('/channels/', thread_id=thread_id)
-
-
 class ChannelCreate(CreateView):
   model = Channel
   fields = '__all__'
   success_url = '/channels/'
-
 class Home(LoginView):
   template_name = 'home.html'
-
 class ChannelUpdate(UpdateView) :
   model = Channel
   fields = '__all__'
-
 class ChannelDelete(DeleteView) :
   model = Channel
   success_url = '/channels/'
-
 class ThreadDelete(DeleteView) :
   model = Thread
   success_url = '/channels/'
-
 class ThreadUpdate(UpdateView) :
   model = Thread
   fields = '__all__'
