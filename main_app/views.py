@@ -76,7 +76,7 @@ class ThreadUpdate(UpdateView) :
 
 class CommentDelete(DeleteView):
   model = Comment 
-  success_url = '/channels/'
+  success_url = '/thread/{thread_id}/'
   
 
 def signup(request):
