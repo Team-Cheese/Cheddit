@@ -22,19 +22,17 @@ html {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 body{
     background-color: blanchedalmond;
 }
 
-h1 {
-    font-size: 5rem;
-}
+
 
 .button {
-    width: 15rem;
+    width: 20rem;
     margin-top: 2.5rem;
     font-size: 1.5rem;
     margin-right: 85vw;
