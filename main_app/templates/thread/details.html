@@ -32,8 +32,8 @@
 
 <div class="comment-card" >
     {% for comment in thread.comment_set.all %}
+        <p>{{comment.user}}</p>
         <p>{{ comment.body }}</p>
-        <pre>{{comment.user.id}}</pre>
         {% if user.id == comment.user.id %} 
         <form action="{% url 'comment_delete' comment.id %}" method="POST">
             {% csrf_token %}
