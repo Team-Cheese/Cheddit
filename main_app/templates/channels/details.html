@@ -22,12 +22,6 @@
 </form>
 {% endif %}
 
-{% comment %} <h3>Add a thread</h3>
-<form action="{% url 'thread_create' channels.id %}" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <button type="submit" class="btn danger button pure-button pure-button-active">edit!</button>
-  </form> {% endcomment %}
-
   <h3>Add a thread</h3>
   <form action="" method="POST">
       {% csrf_token %}
