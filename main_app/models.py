@@ -37,7 +37,9 @@ class Thread(models.Model):
   channel = models.ForeignKey(Channel, on_delete=models.CASCADE, null=True)
 
   def __str__(self):
+
     return f'{self.body}'
+
 
 
 class Comment(models.Model):
