@@ -21,28 +21,43 @@ def channels_index(request) :
   channels = Channel.objects.all()
   return render(request, 'channels/index.html', {'channels': channels})
 
-def channels_details(request , channel_id) :
+def channels_details(request , channel_id):
+  print('anything')
   channels = Channel.objects.get(id=channel_id)
-  thread_form = ThreadForm()
-  return render(request, 'channels/details.html', {'channels': channels, 'thread_form': thread_form})
+  form = ThreadForm()
+
+  if request.method == 'POST':
+    form = ThreadForm(request.POST)
+    if form.is_valid():
+      print('form is valid')
+      form.instance.user = request.user
+      print('hello',form)
+      new_thread = form.save(commit=False)
+      new_thread.channel_id = channel_id
+      new_thread.save()
+      print(new_thread)
+  return render(request, 'channels/details.html', {'channels': channels, 'thread_form': form, 'current_user': request.user.id})
 
 def thread_create(request, channel_id):
-  form = ThreadForm(request.POST)
-  if form.is_valid():
-    new_thread = form.save(commit=False)
-    new_thread.channel_id = channel_id
-    new_thread.save()
-  return redirect(f'/channels/{channel_id}', channel_id=channel_id)
+  if request.method == 'POST':
+    form = ThreadForm(request.POST)
+    if form.is_valid():
+      form.instance.user = request.user
+      print('hello',form)
+      new_thread = form.save(commit=False)
+      new_thread.channel_id = channel_id
+      new_thread.save()
+      return redirect(request, f'channels/{channel_id}' )
 
 def threads_details(request, thread_id):
   thread = Thread.objects.get(id=thread_id)
   comment_form = CommentForm()
-  print(thread.title)
-  return render(request, 'thread/details.html', {'thread': thread, 'comment_form': comment_form})
+  return render(request, 'thread/details.html', {'thread': thread, 'comment_form': comment_form, })
 
 def comment_create(request, thread_id):
   comment_form = CommentForm(request.POST)
   if comment_form.is_valid():
+    comment_form.instance.user = request.user
     new_comment = comment_form.save(commit=False)
     new_comment.thread_id = thread_id
     new_comment.save()
