@@ -51,14 +51,15 @@ def thread_create(request, channel_id):
 
 def threads_details(request, thread_id):
   thread = Thread.objects.get(id=thread_id)
-  print(thread.user.id)
   comment_form = CommentForm()
   return render(request, 'thread/details.html', {'thread': thread, 'comment_form': comment_form, 'current_user': request.user.id })
 
 def comment_create(request, thread_id):
   comment_form = CommentForm(request.POST)
+  # comment = Comment.objects.get(id=thread_id)
   if comment_form.is_valid():
     comment_form.instance.user = request.user
+    print('hello',comment_form.instance.user.id)
     new_comment = comment_form.save(commit=False)
     new_comment.thread_id = thread_id
     new_comment.save()
