@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/details.css' %}"/>
 
 {% endblock %}
 
@@ -23,22 +24,29 @@
 </form>
 {% endif %}
 
-<h3>Add a thread</h3>
+{% comment %} <h3>Add a thread</h3>
 <form action="{% url 'thread_create' channels.id %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
+    <button type="submit" class="btn danger button pure-button pure-button-active">edit!</button>
+  </form> {% endcomment %}
 
-    {{ thread_form.as_p }}
-    <button type="submit">Create Thread</button>
-</form>
+  <h3>Add a thread</h3>
+  <form action="{% url 'thread_create' channels.id %}" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ thread_form.media }}
+      {{ thread_form.as_p }}
+      <button type="submit" class="button pure-button pure-button-active">Create Thread</button>
+  </form>
+</div>
+  {% for thread in channels.thread_set.all %}
+      <div class='card-thread'>
 
-{% for thread in channels.thread_set.all %}
-    <div style="border: 1px solid black">
-
-      <h1>{{ thread.title }}</h1>
-      <p>{{ thread.body | safe }}</h1>
+        <h1>{{ thread.title }}</h1>
+        <p>{{ thread.body | safe }}</h1>
         <a href="{% url 'threads_details' thread.id %}">
-        <button>View Thread</button>
+         <button class='button pure-button pure-button-active'>View Thread</button>
         </a>
-    </div>
+      </div>
+
 {% endfor %}
 {% endblock content %}

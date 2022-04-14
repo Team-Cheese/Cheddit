@@ -7,7 +7,7 @@
 {% block content %}
 <section class="card-container">
     <p>{{thread.title}}!!</p>
-    <p>{{thread.body}}
+    <p>{{thread.body | safe }}
 </section>
 
 <form action="{% url 'comment_create' thread.id %}" method="POST">
