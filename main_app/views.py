@@ -3,13 +3,13 @@ from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Channel
 from django.contrib.auth.views import LoginView
-from django.views.generic.edit import CreateView
 from django.shortcuts import render, redirect
 from main_app.forms import ThreadForm
 from .models import Channel, Thread, Comment
 from .forms import ThreadForm, UserProfileForm, CommentForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
 
 class Home(LoginView):
   template_name = 'home.html'
@@ -74,8 +74,9 @@ class ThreadUpdate(UpdateView) :
   fields = '__all__'
   success_url = '/channels/'
 
-# class CommentDelete(DeleteView):
-#   model = Comment 
+class CommentDelete(DeleteView):
+  model = Comment 
+  success_url = '/channels/'
   
 
 def signup(request):

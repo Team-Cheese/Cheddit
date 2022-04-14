@@ -19,7 +19,10 @@
 <div class="comment-card" >
     {% for comment in thread.comment_set.all %}
         <p>{{ comment.body }}</p>
-        {% comment %} <form action="{% url 'comments_delete' %}" {% endcomment %}
+        <form action="{% url 'comment_delete' comment.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn danger">Delete Comment</button>
+        </form>
     {% endfor %}
 </div>
 
