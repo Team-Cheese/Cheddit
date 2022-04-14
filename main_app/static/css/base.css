@@ -53,7 +53,7 @@ header {
 }
 
 nav {
-  margin: 10px;
+  margin: auto;
   
 }
 
@@ -75,7 +75,7 @@ nav a {
   text-decoration: none;
   color: var(--text-color);
   font-weight: 300;
-  font-size: 20px;
+  font-size: 34px;
 }
 
 nav a:hover {
@@ -83,7 +83,7 @@ nav a:hover {
 }
 
 nav ul {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -95,10 +95,9 @@ nav li {
   
 }
 
-
-  img {
-  width: 3%;
-  height: 3%;
-  float: left;
-  margin-left: 5rem;
-  }
+img {
+width: 3%;
+height: 3%;
+float: left;
+margin-left: 5rem;
+}
