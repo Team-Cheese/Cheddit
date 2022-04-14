@@ -4,9 +4,12 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Channel, Thread
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
+from main_app.forms import ThreadForm
+from .models import Channel, Thread, Comment
 from .forms import ThreadForm, UserProfileForm, CommentForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+
 
 class Home(LoginView):
   template_name = 'home.html'
@@ -54,32 +57,41 @@ def threads_details(request, thread_id):
 def comment_create(request, thread_id):
   comment_form = CommentForm(request.POST)
   if comment_form.is_valid():
+    comment_form.instance.user = request.user
     new_comment = comment_form.save(commit=False)
     new_comment.thread_id = thread_id
     new_comment.save()
   return redirect(f'/thread/{thread_id}', thread_id=thread_id)
 
-
 class ChannelCreate(CreateView):
   model = Channel
   fields = '__all__'
   success_url = '/channels/'
+  
 class Home(LoginView):
   template_name = 'home.html'
+  
 class ChannelUpdate(UpdateView) :
   model = Channel
   fields = '__all__'
+  
 class ChannelDelete(DeleteView) :
   model = Channel
   success_url = '/channels/'
+  
 class ThreadDelete(DeleteView) :
   model = Thread
-  success_url = f'/channels/'
-
+  success_url = '/channels/'
+  
 class ThreadUpdate(UpdateView) :
   model = Thread
   fields = '__all__'
   success_url = '/channels/'
+
+class CommentDelete(DeleteView):
+  model = Comment 
+  success_url = '/thread/{thread_id}/'
+  
 
 def signup(request):
   error_message = ''
