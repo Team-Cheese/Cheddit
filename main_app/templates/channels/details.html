@@ -31,7 +31,7 @@
   </form> {% endcomment %}
 
   <h3>Add a thread</h3>
-  <form action="{% url 'thread_create' channels.id %}" method="POST" enctype="multipart/form-data">
+  <form action="" method="POST">
       {% csrf_token %}
       {{ thread_form.media }}
       {{ thread_form.as_p }}
