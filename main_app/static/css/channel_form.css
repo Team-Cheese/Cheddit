@@ -38,6 +38,13 @@ body{
     margin-right: 85vw;
 }
 
+.editdelete {
+    display: inline-flex;
+    flex-direction: row;
+    margin-left: 38%;
+}
+  
+
 .button1 {
     width: 15rem;
     margin-top: 2.5rem;
