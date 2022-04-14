@@ -6,16 +6,32 @@
 {% endblock %}
 
 {% block content %}
-<div class='div'>
-  <section class="card-container">
-      <p>Welcome to {{channels.title}}!!</p>
-  </section>
+<section class="card-container">
+    <h1>Welcome to  {{channels.title}}!!</h1>
+    <h1>{{channels.description}}</h1>
+</section>
+{% if  user.id == channels.user.id %}
+<form action="{% url 'channels_delete' channels.id %}" method="POST" class="form">
+  {% csrf_token %}
+  <button type="submit" class="btn danger">Delete!</button>
+</form>
 
- 
+<form action="{% url 'channels_update' channels.id %}" method="POST" class="form">
+  {% csrf_token %}
+  <button type="submit" class="btn danger">edit!</button>
+</form>
+{% endif %}
+
+{% comment %} <h3>Add a thread</h3>
+<form action="{% url 'thread_create' channels.id %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <button type="submit" class="btn danger button pure-button pure-button-active">edit!</button>
+  </form> {% endcomment %}
+
   <h3>Add a thread</h3>
-  <form action="{% url 'thread_create' channels.id %}" method="POST" enctype="multipart/form-data" >
+  <form action="" method="POST">
       {% csrf_token %}
-
+      {{ thread_form.media }}
       {{ thread_form.as_p }}
       <button type="submit" class="button pure-button pure-button-active btn-thread1 ">Create Thread</button>
   </form>

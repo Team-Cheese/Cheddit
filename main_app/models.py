@@ -31,13 +31,16 @@ class UserProfile(models.Model):
 class Thread(models.Model):
   id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
   # created_by = models.ForeignKey(Profile)
-  title = models.CharField('Thread Title',max_length=100, unique=True)
+  title = models.CharField('Thread Title', max_length=100, unique=True)
   created = models.DateTimeField(auto_now_add=True)
   body = RichTextField(blank=True, null=True)
   channel = models.ForeignKey(Channel, on_delete=models.CASCADE, null=True)
+  user = models.ForeignKey(User, on_delete=models.CASCADE )
 
   def __str__(self):
-    return {self.body}
+
+    return f'{self.body}'
+
 
 
 class Comment(models.Model):
@@ -45,6 +48,10 @@ class Comment(models.Model):
   created = models.DateTimeField(auto_now_add=True)
   body = RichTextField(blank=True, null=True)
   thread = models.ForeignKey(Thread, on_delete=models.CASCADE, null=True)
+  user = models.ForeignKey(User, on_delete=models.CASCADE )
+
+  def __str__(self):
+    return f'{self.body}'
 
 
 

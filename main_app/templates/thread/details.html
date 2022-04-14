@@ -6,31 +6,35 @@
 {% endblock %}
 
 {% block content %}
-<div class="card-container">
-    <section>
-        <p><strong>Thread Title:</strong> {{thread.title}}!!</p>
-        <p>{{thread.body}}
-    </section>
+<section class="card-container">
+    <p>{{thread.title}}!!</p>
+    <p>{{thread.body | safe }}
+</section>
 
-    <form action="{% url 'comment_create' thread.id %}" method="POST">
-        {% csrf_token %}
-        {{ comment_form.as_p }}
-        <button class="button pure-button pure-button-active" type="submit">Add comment</button>
-    </form>
+<form action="{% url 'comment_create' thread.id %}" method="POST">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button type="submit">Add comment</button>
+</form>
 
+<div class="comment-card" >
     {% for comment in thread.comment_set.all %}
         <p>{{ comment.body }}</p>
+        <form action="{% url 'comment_delete' comment.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn danger">Delete Comment</button>
+        </form>
     {% endfor %}
-        <form action="{% url 'threads_delete' thread.id %}" method="POST" class="form">
-            {% csrf_token %}
-            <button type="submit" class="button pure-button pure-button-active">Delete!</button>
-        </form>
-
-
-        <form action="{% url 'threads_update' thread.id %}" method="POST" class="form">
-            {% csrf_token %}
-            <button type="submit" class="button pure-button pure-button-active">edit!</button>
-        </form>
-    </section>
 </div>
+
+<form action="{% url 'threads_delete' thread.id %}" method="POST" class="form">
+    {% csrf_token %}
+    <button type="submit" class="btn danger">Delete Thread</button>
+</form>
+
+<form action="{% url 'threads_update' thread.id %}" method="POST" class="form">
+    {% csrf_token %}
+    <button type="submit" class="btn danger">Edit Thread</button>
+</form>
+
 {% endblock content %}
