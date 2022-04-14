@@ -29,23 +29,18 @@ body{
     background-color: blanchedalmond;
 }
 
-.card-thread {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+.card-container {
+  
   max-width: 700px;
   margin: auto;
   text-align: center;
   font-family: arial;
   font-size: 2rem;
-  background-color: rgb(239, 187, 108);
+  
 }
 
-.btn-thread{
-  width: 15rem;
-  margin-top: 2.5rem;
-  font-size: 1.5rem;
+.button {
+    width: 20rem;
+    margin-top: 2.5rem;
+    font-size: 2rem;
 }
-
-.btn-thread1{
-  margin-left: 130px;
-}
-

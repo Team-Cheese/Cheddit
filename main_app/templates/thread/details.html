@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/thread_details.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/details.css' %}"/>
 
 {% endblock %}
 
 {% block content %}
-<div class="card-container-thread-edit">
+<div class="card-container">
     <section>
-        <p><strong>Thread Title: <st {{thread.title}}!!</p>
+        <p><strong>Thread Title:</strong> {{thread.title}}!!</p>
         <p>{{thread.body}}
     </section>
 
