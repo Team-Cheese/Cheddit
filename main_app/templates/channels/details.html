@@ -7,11 +7,9 @@
 
 {% block content %}
 <section class="card-container">
-    <p>Welcome to  {{channels.title}}!!</p>
+    <h1>Welcome to  {{channels.title}}!!</h1>
+    <h1>{{channels.description}}</h1>
 </section>
-
-<pre>{{current_user}}</pre>
-<pre>{{channels.user.id}}</pre>
 {% if  user.id == channels.user.id %}
 <form action="{% url 'channels_delete' channels.id %}" method="POST" class="form">
   {% csrf_token %}
@@ -35,8 +33,19 @@
       {% csrf_token %}
       {{ thread_form.media }}
       {{ thread_form.as_p }}
-      <button type="submit" class="button pure-button pure-button-active">Create Thread</button>
+      <button type="submit" class="button pure-button pure-button-active btn-thread1 ">Create Thread</button>
   </form>
+
+   <form action="{% url 'channels_delete' channels.id %}" method="POST" >
+      {% csrf_token %}
+      <button type="submit" class="btn danger button pure-button pure-button-active btn-thread">Delete!</button>
+  </form>
+
+  <form action="{% url 'channels_update' channels.id %}" method="POST" >
+    {% csrf_token %}
+    <button type="submit" class="btn danger button pure-button pure-button-active btn-thread">edit!</button>
+  </form>
+
 </div>
   {% for thread in channels.thread_set.all %}
       <div class='card-thread'>
