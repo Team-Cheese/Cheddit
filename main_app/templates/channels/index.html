@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}"/>
+{% endblock %}
+
+{% block content %}
+<div class='button-container'>
+<a href="{% url 'channels_create'%}">
+<button class='button pure-button pure-button-active'>Create a channel</button></a>
+</div>
+{% for channel in channels %}
+<section class="card-container">
+    <a href="/channels/{{channel.id}}">
+      <p> {{channel.title}}</p>
+    </a>
+  </section>
+  {% endfor %} 
+{% endblock content %}

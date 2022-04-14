@@ -1,0 +1,49 @@
+html {
+  box-sizing: border-box
+}
+
+/* The Universal Selector */
+*, /* All elements*/
+*::before, /* All ::before pseudo-elements */
+*::after { /* All ::after pseudo-elements */
+  /* height & width will now include border & padding by default
+     but can be over-ridden as needed */
+  box-sizing: inherit;
+}
+
+/* resets font size to be 62.5% of the user preference - 
+     in most browser configurations this will be 10px */
+:root {
+    font-size: 62.5%
+}
+
+.channel-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 2.5rem;
+}
+
+body{
+    background-color: blanchedalmond;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+.button {
+    width: 15rem;
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+    margin-right: 85vw;
+}
+
+.button1 {
+    width: 15rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    font-size: 1.5rem;
+    margin-left: 25%;
+}

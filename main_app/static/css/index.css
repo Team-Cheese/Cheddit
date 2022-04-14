@@ -1,0 +1,53 @@
+html {
+  box-sizing: border-box
+}
+
+/* The Universal Selector */
+*, /* All elements*/
+*::before, /* All ::before pseudo-elements */
+*::after { /* All ::after pseudo-elements */
+  /* height & width will now include border & padding by default
+     but can be over-ridden as needed */
+  box-sizing: inherit;
+}
+
+/* resets font size to be 62.5% of the user preference - 
+     in most browser configurations this will be 10px */
+:root {
+    font-size: 62.5%
+}
+
+.card-container{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  font-size: 5rem;
+  background-color: rgb(239, 187, 108);
+}
+
+body{
+    background-color: blanchedalmond;
+}
+
+a{
+    text-decoration: none;
+}
+
+.card-container:hover {
+  background-color: rgb(197, 234, 197);
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+    width: 20rem;
+    margin-top: 2.5rem;
+    font-size: 2rem;
+}
+
