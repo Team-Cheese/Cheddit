@@ -18,8 +18,8 @@
     <form method="POST" class="form-container">
       {% csrf_token %}
       <table>
-
-        {{ form.as_table }}
+        {{ form.media }}
+        {{ form.as_table  }}
       </table>
       <button type="submit" class="btn submit button1 pure-button pure-button-active">Submit!</button>
     </form>
