@@ -1,11 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Channel
+from .models import Channel, Thread
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
-from main_app.forms import ThreadForm
-from .models import Channel, Thread
 from .forms import ThreadForm, UserProfileForm, CommentForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
