@@ -1,33 +1,36 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/thread_details.css' %}"/>
 
 {% endblock %}
 
 {% block content %}
-<section class="card-container">
-    <p>{{thread.title}}!!</p>
-    <p>{{thread.body}}
-</section>
+<div class="card-container">
+    <section>
+        <p><strong>Thread Title: <st {{thread.title}}!!</p>
+        <p>{{thread.body}}
+    </section>
 
-<form action="{% url 'comment_create' thread.id %}" method="POST">
-    {% csrf_token %}
-    {{ comment_form.as_p }}
-    <button type="submit">Add comment</button>
-</form>
-
-{% for comment in thread.comment_set.all %}
-    <p>{{ comment.body }}</p>
-{% endfor %}
-    <form action="{% url 'threads_delete' thread.id %}" method="POST" class="form">
+    <form action="{% url 'comment_create' thread.id %}" method="POST">
         {% csrf_token %}
-        <button type="submit" class="btn danger">Delete!</button>
+        {{ comment_form.as_p }}
+        <button class="button pure-button pure-button-active" type="submit">Add comment</button>
     </form>
 
+    {% for comment in thread.comment_set.all %}
+        <p>{{ comment.body }}</p>
+    {% endfor %}
+        <form action="{% url 'threads_delete' thread.id %}" method="POST" class="form">
+            {% csrf_token %}
+            <button type="submit" class="button pure-button pure-button-active">Delete!</button>
+        </form>
 
-    <form action="{% url 'threads_update' thread.id %}" method="POST" class="form">
-        {% csrf_token %}
-        <button type="submit" class="btn danger">edit!</button>
-    </form>
-</section>
+
+        <form action="{% url 'threads_update' thread.id %}" method="POST" class="form">
+            {% csrf_token %}
+            <button type="submit" class="button pure-button pure-button-active">edit!</button>
+        </form>
+    </section>
+</div>
 {% endblock content %}
