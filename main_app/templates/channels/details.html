@@ -7,11 +7,9 @@
 
 {% block content %}
 <section class="card-container">
-    <p>Welcome to  {{channels.title}}!!</p>
+    <h1>Welcome to  {{channels.title}}!!</h1>
+    <h1>{{channels.description}}</h1>
 </section>
-
-<pre>{{current_user}}</pre>
-<pre>{{channels.user.id}}</pre>
 {% if  user.id == channels.user.id %}
 <form action="{% url 'channels_delete' channels.id %}" method="POST" class="form">
   {% csrf_token %}
