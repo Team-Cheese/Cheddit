@@ -28,11 +28,15 @@ html {
 }
 
 body{
-    background-color: blanchedalmond;
+    background-color: rgb(201, 63, 160);
 }
 
-.button {
-    width: 20rem;
-    margin-top: 2.5rem;
-    font-size: 2rem;
+.card-container-thread-edit{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  font-size: 5rem;
+  background-color: rgb(239, 187, 108);
 }
