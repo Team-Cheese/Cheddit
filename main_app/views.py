@@ -6,7 +6,7 @@ from django.contrib.auth.views import LoginView
 from django.views.generic.edit import CreateView
 from django.shortcuts import render, redirect
 from main_app.forms import ThreadForm
-from .models import Channel, Thread
+from .models import Channel, Thread, Comment
 from .forms import ThreadForm, UserProfileForm, CommentForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -46,7 +46,7 @@ def comment_create(request, thread_id):
     new_comment = comment_form.save(commit=False)
     new_comment.thread_id = thread_id
     new_comment.save()
-  return redirect('/channels/', thread_id=thread_id)
+  return redirect(f'/thread/{thread_id}', thread_id=thread_id)
 
 
 class ChannelCreate(CreateView):
@@ -73,6 +73,10 @@ class ThreadUpdate(UpdateView) :
   model = Thread
   fields = '__all__'
   success_url = '/channels/'
+
+# class CommentDelete(DeleteView):
+#   model = Comment 
+  
 
 def signup(request):
   error_message = ''
