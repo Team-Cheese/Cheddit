@@ -3,7 +3,6 @@ from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Channel
 from django.contrib.auth.views import LoginView
-from django.views.generic.edit import CreateView
 from django.shortcuts import render, redirect
 from main_app.forms import ThreadForm
 from .models import Channel, Thread
