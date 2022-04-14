@@ -77,7 +77,15 @@ p {
   font-size: 2rem;
 }
 
+.editdelete {
+  display: inline-flex;
+  flex-direction: row;
+  margin-left: 38%;
+}
 
+.delete-btn {
+  margin-right: 1rem;
+}
 
 .page {
   display: flex;
