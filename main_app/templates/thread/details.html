@@ -26,6 +26,7 @@
     {% endfor %}
 </div>
 
+{% if user.id == thread.user.id%}
 <form action="{% url 'threads_delete' thread.id %}" method="POST" class="form">
     {% csrf_token %}
     <button type="submit" class="btn danger">Delete Thread</button>
@@ -35,5 +36,5 @@
     {% csrf_token %}
     <button type="submit" class="btn danger">Edit Thread</button>
 </form>
-
+{% endif%}
 {% endblock content %}
