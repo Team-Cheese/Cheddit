@@ -1,9 +1,18 @@
-{% extends 'base.html'%}
-{% block content %}
-<h1>about the changles
-this proejct  was  made by 
+{% extends 'base.html' %}
+{% load static %}
 
-and complted by  ariel
-sun marcus and caleb</h1>
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<h1>Ariel - Git Commander <a href="https://www.linkedin.com/in/koffi-hessou-1b532b212/">Github</a></h1>
+<h1>Caleb - Database <a href="https://www.linkedin.com/in/caleb-vietinghoff/">Github</a></h1>
+<h1> Sun - Designer <a href="https://www.linkedin.com/in/sun-hwang123/">Github</a></h1>
+<h1>Marcus - Scrum Manager <a href="https://www.linkedin.com/in/marcus-lindbloom/">Github</a></h1>
+
+
+
 
 {% endblock %}
