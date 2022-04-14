@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'cheddit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cheddit2'
+        'NAME': 'cheddit'
     }
 }
 

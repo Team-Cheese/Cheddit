@@ -9,6 +9,7 @@
 <section class="card-container">
   <h1>c/{{channels.title}}</h1>
   <h2>{{channels.description}}</h2>
+  <h2>{{channels.user}}</h2>
 </section>
 <div class='editdelete'>
   {% if  user.id == channels.user.id %}
@@ -37,6 +38,7 @@
 
         <h1>{{ thread.title }}</h1>
         <p>{{ thread.body | safe }}</h1>
+          <p>{{thread.user}}</p>
         <a href="{% url 'threads_details' thread.id %}">
         <button class='button pure-button pure-button-active'>View Thread</button>
         </a>
