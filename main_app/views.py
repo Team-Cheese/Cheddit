@@ -32,7 +32,7 @@ def thread_create(request, channel_id):
     new_thread = form.save(commit=False)
     new_thread.channel_id = channel_id
     new_thread.save()
-  return redirect('/channels/', channel_id=channel_id)
+  return redirect(f'/channels/{channel_id}', channel_id=channel_id)
 
 def threads_details(request, thread_id):
   thread = Thread.objects.get(id=thread_id)
