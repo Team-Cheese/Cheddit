@@ -1,26 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/channel_form.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/channel_form.css' %}"/>
 {% endblock %}
-
 {% block content %}
-<div class="channel-form">
-{% if object %}
-  <h1> Edit channel</h1>
-  {% else %}
-    <a href="{% url 'channels_index' %}">
-      <button class='button pure-button pure-button-active'>Back to channels</button></a>
-      <h1>Create a New Channel!</h1>
+  <div class="channel-form">
+    {% if object %}
+      <h1> Edit channel</h1>
+      {% else %}
+        <a href="{% url 'channels_index' %}">
+        <button class='button pure-button pure-button-active'>Back to channels</button></a>
+        <h1>Create a New Channel!</h1>
     {% endif %}
     <form method="POST" class="form-container">
       {% csrf_token %}
-      <table>
-        {{ form.as_table  }}
-      </table>
-      <button type="submit" class="btn submit button1 pure-button pure-button-active">Submit!</button>
+        <table>
+          {{ form.as_table  }}
+        </table>
+        <button type="submit" class="btn submit button1 pure-button pure-button-active">Submit!</button>
     </form>
-</div>
-
+  </div>
 {% endblock %}

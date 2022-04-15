@@ -1,31 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/thread_form.css' %}"/>
-
+  <link rel="stylesheet" type="text/css" href="{% static 'css/thread_form.css' %}"/>
 {% endblock  %}
-
 {% block content  %}
-
-{% if object%}
-<div class='edit-thread'>
-  <div class="page-header">
-    <h1> Edit Thread!</h1>
+  {% if object%}
+    <div class='edit-thread'>
+        <div class="page-header">
+        <h1> Edit Thread!</h1>
+    </div>
+    {% else %}
+      <div class="page-header">
+        <h1>Create a New Thread!</h1>
+      </div>
+    {% endif %}
+    <form method="POST" class="form-container">
+      {% csrf_token %}
+      <table>
+        {{ form.as_table }}
+      </table>
+      <button type="submit" class="button pure-button pure-button-active"> Submit! </button>
+    </form>
   </div>
-  {% else %}
-  <div class="page-header">
-    <h1>Create a New Thread!</h1>
-  </div>
-  {% endif %}
-
-
-  <form method="POST" class="form-container">
-    {% csrf_token %}
-    <table>
-      {{ form.as_table }}
-    </table>
-    <button type="submit" class="button pure-button pure-button-active">Submit!</button>
-  </form>
-</div>
 {% endblock content %}

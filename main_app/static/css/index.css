@@ -28,11 +28,11 @@ html {
 }
 
 body{
-    background-color: blanchedalmond;
+  background-color: blanchedalmond;
 }
 
 a{
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .card-container:hover {
@@ -46,8 +46,8 @@ a{
 }
 
 .button {
-    width: 20rem;
-    margin-top: 2.5rem;
-    font-size: 2rem;
+  width: 20rem;
+  margin-top: 2.5rem;
+  font-size: 2rem;
 }
 
