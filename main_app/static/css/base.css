@@ -54,7 +54,6 @@ header {
 
 nav {
   margin: auto;
-  
 }
 
 ul {
@@ -92,12 +91,11 @@ nav ul {
 
 nav li {
   padding: 0px 20px 0px 20px;
-  
 }
 
 img {
-width: 3%;
-height: 3%;
-float: left;
-margin-left: 5rem;
+  width: 3%;
+  height: 3%;
+  float: left;
+  margin-left: 5rem;
 }

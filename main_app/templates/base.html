@@ -23,7 +23,7 @@
           alt="Cheddit"
         />
         <ul>
-          {% if user.is_authenticated%}
+          {% if user.is_authenticated %}
           <li><a href="{% url 'channels_index' %}">All Channels</a></li>
           <li><a href="{% url 'logout' %}">Logout</a></li>
           <li><a href="{% url 'about' %}">About</a></li>

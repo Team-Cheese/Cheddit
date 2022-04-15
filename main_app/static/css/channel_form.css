@@ -29,8 +29,6 @@ body{
     background-color: blanchedalmond;
 }
 
-
-
 .button {
     width: 20rem;
     margin-top: 2.5rem;
@@ -43,7 +41,6 @@ body{
     flex-direction: row;
     margin-left: 38%;
 }
-  
 
 .button1 {
     width: 15rem;
