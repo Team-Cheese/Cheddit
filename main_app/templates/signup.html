@@ -12,16 +12,15 @@
 </div>
 <section class="signupform">
 {% if error_message %}
-<p class="red-text">{{ error_message }}</p>
+<p class="red-text"> {{ error_message }} </p>
 {% endif %}
 <form method="post">
   <table>
     {% csrf_token %}
     {{ form.as_table }}
   </table>
-  <button type="submit" class="button pure-button pure-button-active">Submit!</button>
+  <button type="submit" class="button pure-button pure-button-active"> Submit! </button>
 </form>
-</section>
 </section>
 
 {% endblock %}

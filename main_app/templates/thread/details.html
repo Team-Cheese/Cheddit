@@ -7,11 +7,11 @@
 
 {% block content %}
 <section class="card-container">
-    <h1>{{thread.title}}</h1>
-    <h1>{{thread.body | safe }}</h1>
+    <h1>{{ thread.title }}</h1>
+    <h1>{{ thread.body | safe }}</h1>
 </section>
 <div class="editdelete">
-{% if user.id == thread.user.id%}
+{% if user.id == thread.user.id %}
 <form action="{% url 'threads_delete' thread.id %}" method="POST" class="form">
     {% csrf_token %}
     <button type="submit" class='btn submit button pure-button pure-button-active delete-btn'>Delete Thread</button>
@@ -32,7 +32,7 @@
 
 <div class="comment-card" >
     {% for comment in thread.comment_set.all %}
-        <p>{{comment.user}}</p>
+        <p>{{ comment.user }}</p>
         <p>{{ comment.body }}</p>
         {% if user.id == comment.user.id %} 
         <form action="{% url 'comment_delete' comment.id %}" method="POST">

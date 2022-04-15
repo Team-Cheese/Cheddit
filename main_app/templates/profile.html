@@ -5,20 +5,20 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}"/>
 {% endblock %}
 
-{% block content %}p
+{% block content %}
 
 <div>
-  <h1>Set your screen name</h1>
+  <h1> Set your screen name </h1>
 </div>
 {% if error_message %}
-  <p class="red-text">{{ error_message }}</p>
+  <p class="red-text"> {{ error_message }} </p>
 {% endif %}
 <form action='' method="POST">
   <table>
     {% csrf_token %}
     {{ form.as_table }}
   </table>
-  <button type="submit" class="btn submit">Set profile name</button>
+  <button type="submit" class="btn submit"> Set profile name </button>
 </form>
 
 {% endblock %}

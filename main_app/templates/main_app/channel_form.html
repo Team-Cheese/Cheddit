@@ -7,13 +7,13 @@
 
 {% block content %}
 <div class="channel-form">
-{%if object%}
+{% if object %}
   <h1> Edit channel</h1>
-  {% else%}
+  {% else %}
     <a href="{% url 'channels_index' %}">
       <button class='button pure-button pure-button-active'>Back to channels</button></a>
       <h1>Create a New Channel!</h1>
-    {%endif%}
+    {% endif %}
     <form method="POST" class="form-container">
       {% csrf_token %}
       <table>
