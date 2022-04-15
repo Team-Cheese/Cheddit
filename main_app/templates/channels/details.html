@@ -7,7 +7,7 @@
   <section class="card-container">
     <h1> {{ channels.title }} </h1>
     <h2> {{ channels.description }} </h2>
-    <h2> {{ channels.user }} </h2>
+    <h2> Created by: {{channels.user}} </h2>
   </section>
   <div class='editdelete'>
     {% if  user.id == channels.user.id %}
@@ -19,15 +19,17 @@
         {% csrf_token %}
         <button type="submit" class="btn submit button pure-button pure-button-active"> Edit Channel </button>
       </form>
-      {% endif %}
-    </div>
+    {% endif %}
+  </div>
     <div class='page'>
+      {% if user.is_authenticated %}
       <form action="" method="POST">
         {% csrf_token %}
         {{ thread_form.media }}
         {{ thread_form.as_p }}
         <button type="submit" class="button1 pure-button pure-button-active btn-thread1 "> Create Thread </button>
       </form>
+      {% endif %}
     </div>
     {% for thread in channels.thread_set.all %}
         <div class='card-thread'>
@@ -35,9 +37,9 @@
           <p> {{ thread.body | safe }} </h1>
           <p> {{ thread.user }} </p>
           <a href="{% url 'threads_details' thread.id %}">
-          <button class='button pure-button pure-button-active'> View Thread </button>
+            <button class='button pure-button pure-button-active'>View Thread</button>
           </a>
         </div>
-      <div>
-    {% endfor %}
+  <div>
+  {% endfor %}
 {% endblock content %}
