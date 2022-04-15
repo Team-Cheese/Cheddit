@@ -9,7 +9,7 @@
 <section class="card-container">
   <h1>c/{{channels.title}}</h1>
   <h2>{{channels.description}}</h2>
-  <h2>{{channels.user}}</h2>
+  <h2>Created by: {{channels.user}}</h2>
 </section>
 <div class='editdelete'>
   {% if  user.id == channels.user.id %}
@@ -25,12 +25,15 @@
   {% endif %}
   <dev class='page'>
     
+    {% if user.is_authenticated %}
     <form action="" method="POST">
       {% csrf_token %}
       {{ thread_form.media }}
       {{ thread_form.as_p }}
       <button type="submit" class="button1 pure-button pure-button-active btn-thread1 ">Create Thread</button>
     </form>
+    {% else %}
+    {% endif %}
     
 </div>
   {% for thread in channels.thread_set.all %}
