@@ -6,7 +6,7 @@ Cheddit is a free to use, open source social forum. Chedditors can create new ch
 
 ## Getting Started:
 
-Here are links to the [deployed applcation]() and our [Trello Board](https://trello.com/b/yD8FqOAn/unit-4-project) containing our teams project planning materials.
+Here are links to the [deployed applcation](https://cheddit.herokuapp.com/) and our [Trello Board](https://trello.com/b/yD8FqOAn/unit-4-project) containing our teams project planning materials.
 
 - Sign up
 - Select a channel or create your own
