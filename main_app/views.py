@@ -9,6 +9,8 @@ from .models import Channel, Thread, Comment
 from .forms import ThreadForm, UserProfileForm, CommentForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class Home(LoginView):
@@ -38,6 +40,7 @@ def channels_details(request , channel_id):
       print(new_thread)
   return render(request, 'channels/details.html', {'channels': channels, 'thread_form': form, 'current_user': request.user.id})
 
+@login_required
 def thread_create(request, channel_id):
   if request.method == 'POST':
     form = ThreadForm(request.POST)
@@ -52,18 +55,22 @@ def thread_create(request, channel_id):
 def threads_details(request, thread_id):
   thread = Thread.objects.get(id=thread_id)
   comment_form = CommentForm()
-  return render(request, 'thread/details.html', {'thread': thread, 'comment_form': comment_form, })
+  return render(request, 'thread/details.html', {'thread': thread, 'comment_form': comment_form, 'current_user': request.user.id })
 
+@login_required
 def comment_create(request, thread_id):
   comment_form = CommentForm(request.POST)
+  # comment = Comment.objects.get(id=thread_id)
   if comment_form.is_valid():
     comment_form.instance.user = request.user
+    print('hello',comment_form.instance.user.id)
     new_comment = comment_form.save(commit=False)
     new_comment.thread_id = thread_id
     new_comment.save()
   return redirect(f'/thread/{thread_id}', thread_id=thread_id)
 
-class ChannelCreate(CreateView):
+
+class ChannelCreate(LoginRequiredMixin, CreateView):
   model = Channel
   fields = '__all__'
   success_url = '/channels/'
@@ -71,24 +78,24 @@ class ChannelCreate(CreateView):
 class Home(LoginView):
   template_name = 'home.html'
   
-class ChannelUpdate(UpdateView) :
+class ChannelUpdate(LoginRequiredMixin, UpdateView) :
   model = Channel
   fields = '__all__'
   
-class ChannelDelete(DeleteView) :
+class ChannelDelete(LoginRequiredMixin, DeleteView) :
   model = Channel
   success_url = '/channels/'
   
-class ThreadDelete(DeleteView) :
+class ThreadDelete(LoginRequiredMixin, DeleteView) :
   model = Thread
   success_url = '/channels/'
   
-class ThreadUpdate(UpdateView) :
+class ThreadUpdate(LoginRequiredMixin, UpdateView) :
   model = Thread
   fields = '__all__'
   success_url = '/channels/'
 
-class CommentDelete(DeleteView):
+class CommentDelete(LoginRequiredMixin, DeleteView):
   model = Comment 
   success_url = '/thread/{thread_id}/'
   

@@ -7,46 +7,43 @@
 
 {% block content %}
 <section class="card-container">
-    <p>Welcome to  {{channels.title}}!!</p>
+  <h1>c/{{channels.title}}</h1>
+  <h2>{{channels.description}}</h2>
+  <h2>{{channels.user}}</h2>
 </section>
-
-<pre>{{current_user}}</pre>
-<pre>{{channels.user.id}}</pre>
-{% if  user.id == channels.user.id %}
-<form action="{% url 'channels_delete' channels.id %}" method="POST" class="form">
-  {% csrf_token %}
-  <button type="submit" class="btn danger">Delete!</button>
-</form>
-
-<form action="{% url 'channels_update' channels.id %}" method="POST" class="form">
-  {% csrf_token %}
-  <button type="submit" class="btn danger">edit!</button>
-</form>
-{% endif %}
-
-{% comment %} <h3>Add a thread</h3>
-<form action="{% url 'thread_create' channels.id %}" method="POST" enctype="multipart/form-data">
+<div class='editdelete'>
+  {% if  user.id == channels.user.id %}
+  <form action="{% url 'channels_delete' channels.id %}" method="POST" class="delete-btn">
     {% csrf_token %}
-    <button type="submit" class="btn danger button pure-button pure-button-active">edit!</button>
-  </form> {% endcomment %}
-
-  <h3>Add a thread</h3>
-  <form action="" method="POST">
+    <button type="submit" class="btn submit button pure-button pure-button-active">Delete Channel</button>
+  </form>
+  <form action="{% url 'channels_update' channels.id %}" method="POST" class="edit-btn">
+    {% csrf_token %}
+    <button type="submit" class="btn submit button pure-button pure-button-active">Edit Channel</button>
+  </form>
+</div>
+  {% endif %}
+  <dev class='page'>
+    
+    <form action="" method="POST">
       {% csrf_token %}
       {{ thread_form.media }}
       {{ thread_form.as_p }}
-      <button type="submit" class="button pure-button pure-button-active">Create Thread</button>
-  </form>
+      <button type="submit" class="button1 pure-button pure-button-active btn-thread1 ">Create Thread</button>
+    </form>
+    
 </div>
   {% for thread in channels.thread_set.all %}
       <div class='card-thread'>
 
         <h1>{{ thread.title }}</h1>
         <p>{{ thread.body | safe }}</h1>
+          <p>{{thread.user}}</p>
         <a href="{% url 'threads_details' thread.id %}">
-         <button class='button pure-button pure-button-active'>View Thread</button>
+        <button class='button pure-button pure-button-active'>View Thread</button>
         </a>
       </div>
+<div>
 
 {% endfor %}
 {% endblock content %}
