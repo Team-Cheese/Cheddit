@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@300&display=swap');
+
 body {
-  background-color: blanchedalmond;
-  
+  background-color: white;
+  font-family: 'Yantramanav', sans-serif;
 }
 
 .loginform {
@@ -8,6 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 20vh;
 }
 
 p {
@@ -15,7 +18,9 @@ p {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0;
 }
 
 .button {
@@ -23,4 +28,23 @@ h1 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   font-weight: bold;
+}
+
+.center {
+  text-align: center;
+}
+
+.my-btn {
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 30px;
+  background-color: #7FC3F2;
+  transition: .2s ease-in-out;
+  border: 2px solid #7FC3F2;
+}
+
+.my-btn:hover {
+  border: 2px solid #4C63FC;
 }

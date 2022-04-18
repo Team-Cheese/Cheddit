@@ -1,11 +1,84 @@
-body {
-  background-color: blanchedalmond;
-}
 
 .about {
-  margin-top: 10rem;
+  margin-top: 3rem;
+  margin-right: 12rem;
+  margin-left: 12rem;
+  display: flex;
+  gap: 1em;
+}
+.containerpage{
+  display: flex;
+  flex-direction: column;
+}
+.pagetitle{
+  padding-top: 2rem;
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column
+  font-size: 6rem;
+}
+
+.paragraph {
+display: flex;
+font-size: 2rem;
+padding-left: 30rem;
+padding-right: 30rem;
+padding-top: 4rem
+}
+
+.card {
+  height: 65rem;
+  width: 40em; 
+  background-color: rgb(16, 16, 37);
+}
+
+.card-text {
+  font-size: 12px;
+}
+
+.card-title {
+  padding-top: 2rem;
+}
+.card-img-top {
+  margin: 0;
+  width: 20px;
+  height: 50rem;
+}
+
+.card:hover {
+  background-color: #7FC3F2;
+  -ms-transform: scale(1.1); 
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1); 
+}
+
+.card {
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  30% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  20% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  500% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  200% {opacity:1;}
 }

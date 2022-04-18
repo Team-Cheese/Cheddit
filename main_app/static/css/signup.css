@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@300&display=swap');
+
 h1 {
-  font-size: 3rem;
-  margin-bottom: 3rem;
+  font-size: 4rem;
+  margin-bottom: 2rem;
 }
 
 body {
-  background-color: blanchedalmond;
+  background-color: white;
+  font-family: 'Yantramanav', sans-serif;
 }
 
 .page {
@@ -25,11 +28,23 @@ table {
   flex-direction: column;
 }
 
-.button {
-  width: 15rem;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  margin-left: 35%;
-  margin-top: 2rem;
-  font-weight: bold;
+.my-btn {
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 30px;
+  background-color: #7FC3F2;
+  transition: .2s ease-in-out;
+  border: 2px solid #7FC3F2;
+}
+
+.my-btn:hover {
+  border: 2px solid #4C63FC;
+}
+
+.center {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }

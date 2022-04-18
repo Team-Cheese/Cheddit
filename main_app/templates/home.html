@@ -7,15 +7,19 @@
 {% block content %}
   {% if not user.is_authenticated %}
     <section class='loginform'>
-      <form action="{% url 'home' %}" method="post" class="login">
-        <h1>Login</h1>
+      <form action="{% url 'home' %}" method="post" class="login card shadow p-5">
+        <div class="center">
+          <h1>Login</h1>
+        </div>  
         {% csrf_token %}
         {{ form.as_p }}
         <input type="hidden" name="next" value="{{ next }}">
-        <button type="submit" class="button pure-button pure-button-active"> Login </button>
+        <div class="center">
+          <button type="submit" class="my-btn"> Login </button>
+        </div>
       </form>
     </section>
     {% else %}
       <h1> You are already logged in! </h1>
   {% endif %}
-{% endblock %}
+{% endblock %} 
