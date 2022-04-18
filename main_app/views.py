@@ -112,7 +112,7 @@ def profile( request ):
     if form.is_valid():
       form.instance.user = request.user
       form.save()
-      return redirect('http://localhost:8000/channels')
+      return redirect('/channels')
     else:
       error_message = 'Invalid sign up - try again'
   form = UserProfileForm()
