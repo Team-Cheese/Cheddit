@@ -35,6 +35,11 @@ padding-top: 4rem
   font-size: 12px;
 }
 
+#button {
+  font-size: 1.5rem;
+
+}
+
 .card-title {
   padding-top: 2rem;
 }
