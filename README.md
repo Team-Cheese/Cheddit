@@ -16,23 +16,23 @@ Here are links to the [deployed applcation]() and our [Trello Board](https://tre
 
 Home Screen
 
-<img alt="Homepage" src="https://i.imgur.com/4ph5oZw.png" width="600px" >
+<img alt="Homepage" src="Image 4-18-22 at 11.15 AM.jpg" width="600px" >
 
 Sign Up
 
-<img alt="Homepage" src="https://i.imgur.com/t70Y7RI.png" width="600px" >
+<img alt="Homepage" src="IMG_3127.png" width="600px" >
 
 Log In
 
-<img alt="Lobby Detail View" src="https://i.imgur.com/TFVcrMD.png" width="600px">
+<img alt="Lobby Detail View" src="IMG_4747.png" width="600px">
 
 Create Thread
 
-<img alt="Homepage" src="https://i.imgur.com/exYgRMI.png" width="600px" >
+<img alt="Homepage" src="Image 4-18-22 at 11.16 AM.jpg" width="600px" >
 
 Create Comment
 
-<img alt="Homepage" src="https://i.imgur.com/LgN09b2.png" width="600px" >
+<img alt="Homepage" src="Image 4-18-22 at 11.17 AM.jpg" width="600px" >
 
 ## Technologies Used:
 
